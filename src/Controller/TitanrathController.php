@@ -12,16 +12,26 @@ class TitanrathController extends AbstractController
     #[Route('/titanrath', name: 'titanrath')]
     public function titanrath(TitanrathGenerator $titanrathGenerator): Response
     {
-        return $this->json([
-            'data' => $titanrathGenerator->getIndex()
-        ]);
+        return $this->json(
+            ['data' => $titanrathGenerator->getIndex()],
+            Response::HTTP_OK,
+            [
+                'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Allow-Headers' => '*',
+            ]
+        );
     }
 
     #[Route('/titanrath/description', name: 'titanrath-description')]
     public function titanrathDescription(TitanrathGenerator $titanrathGenerator): Response
     {
-        return $this->json([
-            'data' => $titanrathGenerator->getDescription()
-        ]);
+        return $this->json(
+            ['data' => $titanrathGenerator->getDescription()],
+            Response::HTTP_OK,
+            [
+                'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Allow-Headers' => '*',
+            ]
+        );
     }
 }
