@@ -48,7 +48,7 @@ class IndexController extends AbstractController
         ];
 
         $html = file_get_contents(__DIR__ . '/../../public/main.html');
-        $html = preg_replace('/(body)/', '$1 data-api="' . htmlentities(json_encode($data)) . '"', $html);
+        $html = preg_replace('/(<body)/', '$1 data-api="' . htmlentities(json_encode($data)) . '"', $html);
         $html = preg_replace('/(?<=<title>)([^<]+)(?=<)/', $item['title'], $html);
 
         return preg_replace('/(.?)(?=<\/head>)/', '<meta name="description" content="' . htmlentities(json_encode($item['description'])) . '">', $html);
