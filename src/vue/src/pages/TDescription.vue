@@ -6,7 +6,7 @@ import {useApiRef} from "ui"
 const {data: info} = useApiRef<{
   title: string,
   date: string,
-  description: string
+  code: string
 }>('titanrath/description')
 
 watch(info, () => {
@@ -21,7 +21,8 @@ watch(info, () => {
     </div>
     <h1>{{ info.title }}</h1>
     <div>{{ info.date }}</div>
-    <div v-html="info.description"></div>
+    <div v-html="info.code"></div>
+    <div class="t-description__like"><C2Button label="Like"/></div>
   </div>
 </template>
 
@@ -32,5 +33,9 @@ watch(info, () => {
 
 .t-description__date {
   padding: 0 16px;
+}
+
+.t-description__like {
+  padding: 16px;
 }
 </style>

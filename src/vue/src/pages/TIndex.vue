@@ -5,7 +5,7 @@ import {useApiRef} from "ui"
 // Получаем данные запроса
 const {data: info} = useApiRef<{
   title: string,
-  description: string
+  code: string
 }>('titanrath')
 
 watch(info, () => {
@@ -16,7 +16,7 @@ watch(info, () => {
 <template>
   <div v-if="info">
     <h1>{{ info.title }}</h1>
-    <div v-html="info.description"></div>
+    <div v-html="info.code"></div>
     <div>
       <RouterLink to="/description">description</RouterLink>
     </div>
